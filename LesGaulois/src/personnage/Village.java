@@ -19,6 +19,13 @@ public class Village {
 		return villageois[i];
 	}
 
+	public void afficherVillageois() {
+		System.out.println("Dans village du chef " + this.chef.getNom() + " vivent les légendaires gaulois :");
+		for(int i=0;i<this.nbVillageois;i++){
+			System.out.println(" - "+ this.villageois[i].getNom());
+		}
+	}
+
 	public void setChef(Chef chef) {
 		this.chef = chef;
 	}
@@ -37,8 +44,9 @@ public class Village {
 		//Gaulois gaulois = village.trouverHabitant(1);
 		//System.out.println(gaulois);
 		//probablement index out of range ou alors variable pas encore initialisée;
-		
-		
+		Gaulois obelix = new Gaulois("Obelix",25);
+		village.ajouterHabitant(obelix);
+		village.afficherVillageois();
 		
 	}
 }
