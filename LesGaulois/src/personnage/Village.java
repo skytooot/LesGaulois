@@ -4,15 +4,15 @@ public class Village {
 	private String nom;
 	private Gaulois[] villageois;
 	private int nbVillageois = 0;
+	private Chef chef;
 
 	public Village(String nom, int nbVillageoisMaximum) {
 		this.nom = nom;
-		this.villageois = villageois[nbVillageoisMaximum];
+		villageois = new Gaulois[nbVillageoisMaximum];
 	}
 
 	public void ajouterHabitant(Gaulois gaulois) {
-		this.villageois.append(gaulois);
-		this.nbVillageois++;
+		this.villageois[nbVillageois++]= gaulois;
 	}
 
 	public Gaulois trouverHabitant(int i) {
@@ -37,7 +37,7 @@ public class Village {
 		Village village = new Village("Village des Irréductibles",30);
 		//Gaulois gaulois = village.trouverHabitant(30);
 		//probablement index out of range;
-		Chef abraracourcix = new Chef("Abraracourcix",6);
+		Chef abraracourcix = new Chef("Abraracourcix",6,village);
 		village.setChef(abraracourcix);
 		Gaulois asterix = new Gaulois("Asterix",8);
 		village.ajouterHabitant(asterix);
